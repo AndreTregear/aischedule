@@ -1,0 +1,58 @@
+document_types:
+  - name: "academic_transcript"
+    description: "An academic transcript with semesters, courses, and grades"
+
+patterns:
+  academic_transcript:
+    semester_header: "^(Spring|Summer|Fall)\\s+(20\\d{2})$"
+    course_entry: "^([A-Z]{3}\\d{4})\\s+(.*?)\\s+([A-Z][+-]?|W)\\s+(\\d+\\.\\d+)$"
+    gpa_section: "^Cumulative\\s+GPA:\\s+\\d+\\.\\d+$"
+
+schema:
+  academic_transcript:
+    type: "object"
+    properties:
+      student_info:
+        type: "object"
+        properties:
+          name:
+            type: "string"
+          id:
+            type: "string"
+      semesters:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            semester:
+              type: "string"
+              enum: ["Spring", "Summer", "Fall"]
+            year:
+              type: "integer"
+              minimum: 2000
+              maximum: 2100
+            courses:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  course_code:
+                    type: "string"
+                    pattern: "^[A-Z]{3}\\s\\d{4}$"
+                  course_name:
+                    type: "string"
+                  grade:
+                    type: "string"
+                    enum: ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F", "W"]
+                  credits:
+                    type: "number"
+                    minimum: 0
+                    maximum: 6
+            gpa:
+              type: "number"
+              minimum: 0
+              maximum: 4.0
+      cumulative_gpa:
+        type: "number"
+        minimum: 0
+        maximum: 4.0 

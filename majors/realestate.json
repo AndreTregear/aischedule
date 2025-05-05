@@ -1,0 +1,66 @@
+{
+    "degree": "Bachelor of Science",
+    "major": "Real Estate",
+    "academic_year": "2024-2025",
+    "admission_requirements": {
+      "minimum_semester_hours": 52,
+      "minimum_grade": "C-",
+      "prerequisite_gpa": 2.9
+    },
+    "lower_level_prerequisites": [
+      { "course_code": "ECO 2013", "title": "Principles of Macroeconomics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ECO 2023", "title": "Principles of Microeconomics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAC 2233", "title": "Calculus for Business", "credit_hours": 3, "prerequisites": "MAC 1105" },
+      { "course_code": "STA 2023", "title": "Fundamental Business Statistics", "credit_hours": 3, "prerequisites": "MAC 1105" },
+      { "course_code": "CGS 2100", "title": "Microcomputer Applications for Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "CGS 2518", "title": "Spreadsheets for Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ACG 2021", "title": "Introduction to Financial Accounting", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ACG 2071", "title": "Introduction to Managerial Accounting", "credit_hours": 3, "prerequisites": "ACG 2021" },
+      { "course_code": "GEB 1030", "title": "Professional Development for Business Careers", "credit_hours": 1, "prerequisites": null },
+      { "course_code": "RMI 2302", "title": "Risk in Business and Society", "credit_hours": 3, "prerequisites": null }
+    ],
+    "general_business_core_requirements": [
+      { "course_code": "BUL 3310", "title": "The Legal and Ethical Environment of Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "FIN 3403", "title": "Financial Management of the Firm", "credit_hours": 3, "prerequisites": ["ECO 2023", "ACG 2021"] },
+      { "course_code": "GEB 3213", "title": "Business Communications", "credit_hours": 3, "prerequisites": "Admission to the major" },
+      { "course_code": "ISM 3541", "title": "Introduction to Business Analytics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAN 3240", "title": "Organizational Behavior", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAR 3023", "title": "Basic Marketing Concepts", "credit_hours": 3, "prerequisites": null }
+    ],
+    "general_business_breadth_requirements": {
+      "required": [
+        { "course_code": "MAN 4720", "title": "Strategic Management and Business Policy", "credit_hours": 3, "prerequisites": ["FIN 3403", "MAN 3240", "MAR 3023"] },
+        { "course_code": "REE 3043", "title": "Real Estate", "credit_hours": 3, "prerequisites": null },
+        { "course_code": "RMI 3011", "title": "Risk Management and Insurance", "credit_hours": 3, "prerequisites": null }
+      ]
+    },
+    "additional_information": [
+      "CGS 2518 is required for graduation.",
+      "Completion of REE 3043 and REE 4433 qualifies students to sit for the Florida real estate salesperson license.",
+      "Completion of the Real Estate major qualifies students to sit for the Florida appraisal certification exams.",
+      "Business courses are very limited in the summer.",
+      "REE 3043 is a prerequisite for all upper-level REE courses.",
+      "It is recommended that students take REE 4103 and REE 4204 in the first semester of the major, and REE 4143 and REE 4313 in following semesters.",
+      "REE 4103 and REE 4143 cannot be taken together.",
+      "Graduate pathway substitutions: REE 5205 for REE 4204, REE 5305 for REE 4313, REE 5209 for REE 4143.",
+      "BS/MSF and BS/MBA combined pathway available with GPA: 3.4+ overall, 3.2+ upper division, 3.2+ major.",
+      "Contact: Department of RMI, Real Estate, and Legal Studies, RBA 313, 850-644-4070."
+    ],
+    "major_area_requirements": {
+      "required_courses": [
+        { "course_code": "REE 4103", "title": "Real Estate Valuation", "credit_hours": 3, "prerequisites": ["REE 3043"] },
+        { "course_code": "REE 4143", "title": "Real Estate Market Analysis", "credit_hours": 3, "prerequisites": ["REE 4103"] },
+        { "course_code": "REE 4204", "title": "Real Estate Finance", "credit_hours": 3, "prerequisites": ["REE 3043", "FIN 3403"] },
+        { "course_code": "REE 4313", "title": "Real Estate Investment", "credit_hours": 3, "prerequisites": ["REE 3043", "FIN 3403"] },
+        { "course_code": "REE 4433", "title": "Legal Environment of Real Estate", "credit_hours": 3, "prerequisites": ["REE 3043", "BUL 3310"] }
+      ],
+      "electives": [],
+      "requiredElectives": 0
+    },
+    "resources": {
+      "minor_computer_science": null,
+      "minor_business_analytics": null,
+      "combined_pathways": "https://business.fsu.edu/combined-pathways"
+    }
+  }
+  

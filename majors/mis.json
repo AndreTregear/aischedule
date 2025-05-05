@@ -1,0 +1,287 @@
+﻿{
+    "degree": "Bachelor of Science",
+    "major": "Management Information Systems",
+    "academic_year": "2024-2025",
+    "admission_requirements": {
+      "minimum_semester_hours": 52,
+      "minimum_grade": "C-",
+      "prerequisite_gpa": 2.5
+    },
+    "lower_level_prerequisites": [
+      {
+        "course_code": "ECO 2013",
+        "title": "Principles of Macroeconomics",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "ECO 2023",
+        "title": "Principles of Microeconomics",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "MAC 2233",
+        "title": "Calculus for Business",
+        "credit_hours": 3,
+        "prerequisites": "MAC 1105"
+      },
+      {
+        "course_code": "STA 2023",
+        "title": "Fundamental Business Statistics",
+        "credit_hours": 3,
+        "prerequisites": "MAC 1105"
+      },
+      {
+        "course_code": "CGS 2100",
+        "title": "Microcomputer Applications for Business",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "CGS 2518",
+        "title": "Spreadsheets for Business",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "ACG 2021",
+        "title": "Introduction to Financial Accounting",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "ACG 2071",
+        "title": "Introduction to Managerial Accounting",
+        "credit_hours": 3,
+        "prerequisites": "ACG 2021"
+      },
+      {
+        "course_code": "GEB 1030",
+        "title": "Professional Development for Business Careers",
+        "credit_hours": 1,
+        "prerequisites": null
+      },
+      {
+        "course_code": "RMI 2302",
+        "title": "Risk in Business and Society",
+        "credit_hours": 3,
+        "prerequisites": null
+      }
+    ],
+    "general_business_core_requirements": [
+      {
+        "course_code": "BUL 3310",
+        "title": "The Legal and Ethical Environment of Business",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "FIN 3403",
+        "title": "Financial Management of the Firm",
+        "credit_hours": 3,
+        "prerequisites": ["ECO 2023", "ACG 2021"]
+      },
+      {
+        "course_code": "GEB 3213",
+        "title": "Business Communications",
+        "credit_hours": 3,
+        "prerequisites": "Admission to the major"
+      },
+      {
+        "course_code": "ISM 3541",
+        "title": "Introduction to Business Analytics",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "MAN 3240",
+        "title": "Organizational Behavior",
+        "credit_hours": 3,
+        "prerequisites": null
+      },
+      {
+        "course_code": "MAR 3023",
+        "title": "Basic Marketing Concepts",
+        "credit_hours": 3,
+        "prerequisites": null
+      }
+    ],
+    "general_business_breadth_requirements": {
+      "required": [
+        {
+          "course_code": "MAN 4720",
+          "title": "Strategic Management and Business Policy",
+          "credit_hours": 3,
+          "prerequisites": ["FIN 3403", "MAN 3240", "MAR 3023"]
+        }
+      ],
+      "electives_choose_two": [
+        {
+          "course_code": "FIN 3244",
+          "title": "Financial Markets, Institutions, and International Finance Systems",
+          "credit_hours": 3,
+          "prerequisites": ["ECO 2013", "ACG 2021"]
+        },
+        {
+          "course_code": "ISM 3003",
+          "title": "Foundations of Management Information Systems",
+          "credit_hours": 3,
+          "prerequisites": "CGS 2100"
+        },
+        {
+          "course_code": "MAN 3600",
+          "title": "Multinational Business Operations",
+          "credit_hours": 3,
+          "prerequisites": ["ECO 2013", "ECO 2023"]
+        },
+        {
+          "course_code": "MAR 3231",
+          "title": "Retailing Management",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "MAR 3400",
+          "title": "Professional Selling",
+          "credit_hours": 3,
+          "prerequisites": "MAR 3023"
+        },
+        {
+          "course_code": "QMB 3200",
+          "title": "Quantitative Methods for Business Decisions",
+          "credit_hours": 3,
+          "prerequisites": ["CGS 2100", "STA 2023"]
+        },
+        {
+          "course_code": "REE 3043",
+          "title": "Real Estate",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "RMI 3011",
+          "title": "Risk Management and Insurance",
+          "credit_hours": 3,
+          "prerequisites": null
+        }
+      ]
+    },
+    "additional_information": [
+      "University-wide requirements (liberal studies, multicultural, residency, total hours) vary—consult advisor.",
+      "MIS courses are not offered every semester; summer offerings are limited.",
+      "MIS majors may pursue minors in Computer Science or Business Analytics.",
+      "Combined BS/MS-MIS and BS/MBA pathways available with specific GPA and course-substitution rules.",
+      "Transfer credit policy applies to upper-level business courses—approval required.",
+      "For more info, contact Business Analytics, Information Systems & Supply Chain Dept (RBB 325)."
+    ],
+    "major_area_requirements": {
+      "required_courses": [
+        {
+          "course_code": "ISM 4113",
+          "title": "Management Information Systems Analysis and Design",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4212",
+          "title": "Information for Operating Control and Data Management",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4220",
+          "title": "Information and Communications Systems Management",
+          "credit_hours": 3,
+          "prerequisites": null
+        }
+      ],
+      "electives": [
+        {
+          "course_code": "CGS 3406",
+          "title": "Object-Oriented Programming in C++",
+          "credit_hours": 3,
+          "prerequisites": "MAC 1105"
+        },
+        {
+          "course_code": "CGS 3416",
+          "title": "Java Programming for Non-Specialists",
+          "credit_hours": 3,
+          "prerequisites": "MAC 1105"
+        },
+        {
+          "course_code": "CGS 3465",
+          "title": "Introduction to Programming Python",
+          "credit_hours": 3,
+          "prerequisites": "MAC 1105"
+        },
+        {
+          "course_code": "COP 3014",
+          "title": "Programming I",
+          "credit_hours": 3,
+          "prerequisites": "MAC 1140"
+        },
+        {
+          "course_code": "ISM 4117",
+          "title": "Business Intelligence",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 3540",
+          "title": "Big Data",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4314",
+          "title": "Project Management",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4545",
+          "title": "Data Analytics and Mining for Business",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4552",
+          "title": "Social Media Analytics",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4930r",
+          "title": "Special Topics in MIS",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "ISM 4941",
+          "title": "MIS Internship",
+          "credit_hours": 3,
+          "prerequisites": "Permission of Instructor and ISM 4113 or ISM 4212"
+        },
+        {
+          "course_code": "MAR 4524",
+          "title": "Consumer Demand Analytics with Big Data",
+          "credit_hours": 3,
+          "prerequisites": null
+        },
+        {
+          "course_code": "QMB 4700",
+          "title": "Operations Research for Managerial Decisions",
+          "credit_hours": 3,
+          "prerequisites": null
+        }
+      ],
+	"requiredElectives": 3
+    },
+    "resources": {
+      "minor_computer_science": "http://www.cs.fsu.edu/academics/undergraduate-programs/minor-in-computer-science/",
+      "minor_business_analytics": "https://business.fsu.edu/undergraduate/minors/business-analytics",
+      "combined_pathways": "https://business.fsu.edu/combined-pathways"
+    }
+  }
+  

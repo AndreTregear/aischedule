@@ -1,0 +1,69 @@
+{
+    "degree": "Bachelor of Science",
+    "major": "Accounting",
+    "academic_year": "2024-2025",
+    "admission_requirements": {
+      "minimum_semester_hours": 52,
+      "minimum_grade": "C-",
+      "prerequisite_gpa": 2.5
+    },
+    "lower_level_prerequisites": [
+      { "course_code": "ECO 2013", "title": "Principles of Macroeconomics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ECO 2023", "title": "Principles of Microeconomics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAC 2233", "title": "Calculus for Business", "credit_hours": 3, "prerequisites": "MAC 1105" },
+      { "course_code": "STA 2023", "title": "Fundamental Business Statistics", "credit_hours": 3, "prerequisites": "MAC 1105" },
+      { "course_code": "CGS 2100", "title": "Microcomputer Applications for Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "CGS 2518", "title": "Spreadsheets for Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ACG 2021", "title": "Introduction to Financial Accounting", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ACG 2071", "title": "Introduction to Managerial Accounting", "credit_hours": 3, "prerequisites": "ACG 2021" },
+      { "course_code": "GEB 1030", "title": "Professional Development for Business Careers", "credit_hours": 1, "prerequisites": null },
+      { "course_code": "RMI 2302", "title": "Risk in Business and Society", "credit_hours": 3, "prerequisites": null }
+    ],
+    "general_business_core_requirements": [
+      { "course_code": "FIN 3403", "title": "Financial Management of the Firm", "credit_hours": 3, "prerequisites": ["ECO 2023", "ACG 2021"] },
+      { "course_code": "GEB 3213", "title": "Business Communications", "credit_hours": 3, "prerequisites": "Admission to the major" },
+      { "course_code": "ISM 3541", "title": "Introduction to Business Analytics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAN 3240", "title": "Organizational Behavior", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAR 3023", "title": "Basic Marketing Concepts", "credit_hours": 3, "prerequisites": null }
+    ],
+    "general_business_breadth_requirements": [
+      { "course_code": "FIN 3244", "title": "Financial Markets, Institutions, and International Finance Systems", "credit_hours": 3, "prerequisites": ["ECO 2013", "ACG 2021"] },
+      { "course_code": "MAN 4720", "title": "Strategic Management and Business Policy", "credit_hours": 3, "prerequisites": ["FIN 3403", "MAN 3240", "MAR 3023"] },
+      { "course_code": "QMB 3200", "title": "Quantitative Methods for Business Decisions", "credit_hours": 3, "prerequisites": ["CGS 2100", "STA 2023"] }
+    ],
+    "additional_information": [
+      "CGS 2518 is required and serves as a prerequisite to ACG 4401.",
+      "Students must pass an Accounting Competency Exam (or its embedded equivalent in FSU ACG 2021) before registering for ACG 3101 or ACG 3341.",
+      "A grade of C or better (not C-) is required in ACG 3101 to enroll in ACG 3111 or any 4000-level ACG/TAX course.",
+      "A grade of C- or better is required in all other upper-level accounting courses.",
+      "All upper-level accounting courses should be taken in residence at FSU.",
+      "University-wide graduation requirements must also be fulfilled.",
+      "Transfer credit for upper-level business courses must be AACSB-accredited and approved.",
+      "MAcc admission generally requires 3.0 GPA in upper-division work.",
+      "Students meeting GPA thresholds (3.4 overall, 3.2 upper-division, 3.2 accounting) may pursue the BS/MAcc pathway.",
+      "MAcc application deadlines: June 1 (Fall), October 1 (Spring), March 1 (Summer). Assistantship deadline: March 1.",
+      "More info: http://business.fsu.edu/macc or https://business.fsu.edu/combined-pathways.",
+      "Contact: Department of Accounting, RBA 309, 850-644-2771."
+    ],
+    "major_area_requirements": {
+      "required_courses": [
+        { "course_code": "ACG 3101", "title": "Financial Accounting and Reporting I", "credit_hours": 3, "prerequisites": ["ACG 2021", "ACG 2071"] },
+        { "course_code": "ACG 3111", "title": "Financial Accounting and Reporting II", "credit_hours": 3, "prerequisites": ["ACG 3101"] },
+        { "course_code": "ACG 3341", "title": "Cost Accounting", "credit_hours": 3, "prerequisites": ["ACG 2021", "ACG 2071"], "corequisites": ["QMB 3200"] },
+        { "course_code": "ACG 4201", "title": "Financial Accounting and Reporting III", "credit_hours": 3, "prerequisites": ["ACG 3111"] },
+        { "course_code": "ACG 4401", "title": "Accounting Information Systems", "credit_hours": 3, "prerequisites": ["ACG 3101", "CGS 2518"] },
+        { "course_code": "ACG 4632", "title": "Auditing Theory and Application I", "credit_hours": 3, "prerequisites": ["ACG 3111", "ACG 4401"] },
+        { "course_code": "TAX 4001", "title": "Federal Tax Accounting I", "credit_hours": 3, "prerequisites": ["ACG 3101"] },
+        { "course_code": "TAX 4011", "title": "Federal Tax Accounting II", "credit_hours": 3, "prerequisites": ["TAX 4001"] },
+        { "course_code": "BUL 3351", "title": "UCC and Law for Accountancy", "credit_hours": 3, "prerequisites": null }
+      ],
+      "electives": [],
+      "requiredElectives": 0
+    },
+    "resources": {
+      "minor_computer_science": null,
+      "minor_business_analytics": null,
+      "combined_pathways": "https://business.fsu.edu/combined-pathways"
+    }
+  }
+  

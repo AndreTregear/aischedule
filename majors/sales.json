@@ -1,0 +1,93 @@
+{
+  "degree": "Bachelor of Science",
+  "major": "Professional Sales",
+  "academic_year": "2024-2025",
+  "admission_requirements": {
+    "minimum_semester_hours": 52,
+    "minimum_grade": "C-",
+    "prerequisite_gpa": 2.9
+  },
+  "lower_level_prerequisites": [
+    { "course_code": "ECO 2013", "title": "Principles of Macroeconomics", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "ECO 2023", "title": "Principles of Microeconomics", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "MAC 2233", "title": "Calculus for Business", "credit_hours": 3, "prerequisites": "MAC 1105" },
+    { "course_code": "STA 2023", "title": "Fundamental Business Statistics", "credit_hours": 3, "prerequisites": "MAC 1105" },
+    { "course_code": "CGS 2100", "title": "Microcomputer Applications for Business", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "CGS 2518", "title": "Spreadsheets for Business", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "ACG 2021", "title": "Introduction to Financial Accounting", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "ACG 2071", "title": "Introduction to Managerial Accounting", "credit_hours": 3, "prerequisites": "ACG 2021" },
+    { "course_code": "GEB 1030", "title": "Professional Development for Business Careers", "credit_hours": 1, "prerequisites": null },
+    { "course_code": "RMI 2302", "title": "Risk in Business and Society", "credit_hours": 3, "prerequisites": null }
+  ],
+  "general_business_core_requirements": [
+    { "course_code": "BUL 3310", "title": "The Legal and Ethical Environment of Business", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "FIN 3403", "title": "Financial Management of the Firm", "credit_hours": 3, "prerequisites": ["ECO 2023", "ACG 2021"] },
+    { "course_code": "GEB 3213", "title": "Business Communications", "credit_hours": 3, "prerequisites": "Admission to the major" },
+    { "course_code": "ISM 3541", "title": "Introduction to Business Analytics", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "MAN 3240", "title": "Organizational Behavior", "credit_hours": 3, "prerequisites": null },
+    { "course_code": "MAR 3023", "title": "Basic Marketing Concepts", "credit_hours": 3, "prerequisites": null }
+  ],
+  "general_business_breadth_requirements": {
+    "required": [
+      { "course_code": "MAN 4720", "title": "Strategic Management and Business Policy", "credit_hours": 3, "prerequisites": ["FIN 3403", "MAN 3240", "MAR 3023"] },
+      { "course_code": "MAR 3400", "title": "Professional Selling", "credit_hours": 3, "prerequisites": ["MAR 3023"] }
+    ],
+    "electives_choose_two": [
+      { "course_code": "MAN 3600", "title": "Multinational Business Operations", "credit_hours": 3, "prerequisites": ["ECO 2013", "ECO 2023"] },
+      { "course_code": "MAR 3231", "title": "Retailing Management", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "QMB 3200", "title": "Quantitative Methods for Business Decisions", "credit_hours": 3, "prerequisites": ["CGS 2100", "STA 2023"] }
+    ]
+  },
+  "additional_information": [
+    "Students completing the Professional Sales major receive a bachelor's degree in Marketing.",
+    "In addition to the requirements outlined above, each student must complete all University-wide requirements for graduation including liberal studies, multicultural requirement, summer residency, FSU residency, and total hours requirement.",
+    "Students must not enroll in any course at another institution without prior approval from the College of Business Undergraduate Programs Office.",
+    "Qualified students may apply for the Combined BS in Professional Sales/MBA Pathway. Requirements include a 3.4+ overall GPA, 3.2+ GPA in upper-division and major-specific coursework.",
+    "Summer business course offerings are extremely limited.",
+    "For more information, contact Chuck Viosca at cviosca@fsu.edu or 850-644-7875."
+  ],
+  "major_area_requirements": {
+    "required_courses": [
+      { "course_code": "MAR 4403", "title": "Sales Management", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAR 3400"] },
+      { "course_code": "MAR 4415", "title": "Advanced Sales Techniques", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAR 3400"] },
+      { "course_code": "MAR 4613", "title": "Marketing Research", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 4941", "title": "Professional Sales Internship", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAR 3400"] }
+    ],
+    "electives": [
+      { "course_code": "IDS 3121", "title": "Business Case Analysis and Solution Development", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "FIN 3244", "title": "Financial Markets, Institutions, and International Finance Systems", "credit_hours": 3, "prerequisites": ["ECO 2013", "ACG 2021"] },
+      { "course_code": "GEB 4844", "title": "Executive Perspectives", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ISM 4113", "title": "Management Information Systems Analysis and Design", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAN 3504", "title": "Service Operations Management", "credit_hours": 3, "prerequisites": ["QMB 3200"] },
+      { "course_code": "MAN 3600", "title": "Multinational Business Operations", "credit_hours": 3, "prerequisites": ["ECO 2013", "ECO 2023"] },
+      { "course_code": "MAN 4301", "title": "Human Resource Management", "credit_hours": 3, "prerequisites": ["MAN 3240"] },
+      { "course_code": "ACG 3101", "title": "Financial Accounting and Reporting I", "credit_hours": 3, "prerequisites": ["ACG 2021"] },
+      { "course_code": "MAR 3231", "title": "Retailing Management", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 3323", "title": "Promotional Management", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 3461", "title": "Principles of Purchasing", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 3503", "title": "Consumer Behavior", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 3711", "title": "Sports, Recreation, and Entertainment Marketing", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "ENT 4014", "title": "Creating New Ventures I", "credit_hours": 3, "prerequisites": ["MAN 3240"] },
+      { "course_code": "MAR 4156", "title": "Multinational Marketing", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAN 3600"] },
+      { "course_code": "MAN 4143", "title": "Contemporary Leadership Challenges", "credit_hours": 3, "prerequisites": ["MAN 3240"] },
+      { "course_code": "MAR 4203", "title": "Logistics & Supply Chain Management", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAN 3504"] },
+      { "course_code": "MAR 4233", "title": "Social Media Marketing", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 4462", "title": "Seminar in Purchasing & Materials Management", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAR 3461"] },
+      { "course_code": "MAR 4480", "title": "Marketing Strategy", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 4524", "title": "Consumer Demand Analytics with Big Data", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAR 4614", "title": "Advanced Marketing Research", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAR 4613"] },
+      { "course_code": "MAR 4717", "title": "Strategic Sports Marketing", "credit_hours": 3, "prerequisites": ["MAR 3023", "MAR 3711"] },
+      { "course_code": "MAR 4721", "title": "Electronic Marketing", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 4832", "title": "Product Innovation Management", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 4841", "title": "Services Marketing", "credit_hours": 3, "prerequisites": ["MAR 3023"] },
+      { "course_code": "MAR 4946", "title": "Professional Sales Practicum", "credit_hours": 3, "prerequisites": "Permission & Instructor" },
+      { "course_code": "MAR 4939r", "title": "Marketing Seminar (Special Topics)", "credit_hours": 3, "prerequisites": ["MAR 3023"] }
+    ],
+    "requiredElectives": 2
+  },
+  "resources": {
+    "minor_computer_science": null,
+    "minor_business_analytics": null,
+    "combined_pathways": "https://business.fsu.edu/combined-pathways"
+  }
+}

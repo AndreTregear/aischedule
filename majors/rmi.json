@@ -1,0 +1,72 @@
+{
+    "degree": "Bachelor of Science",
+    "major": "Risk Management/Insurance",
+    "academic_year": "2024-2025",
+    "admission_requirements": {
+      "minimum_semester_hours": 52,
+      "minimum_grade": "C-",
+      "prerequisite_gpa": 2.9
+    },
+    "lower_level_prerequisites": [
+      { "course_code": "ECO 2013", "title": "Principles of Macroeconomics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ECO 2023", "title": "Principles of Microeconomics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAC 2233", "title": "Calculus for Business", "credit_hours": 3, "prerequisites": "MAC 1105" },
+      { "course_code": "STA 2023", "title": "Fundamental Business Statistics", "credit_hours": 3, "prerequisites": "MAC 1105" },
+      { "course_code": "CGS 2100", "title": "Microcomputer Applications for Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "CGS 2518", "title": "Spreadsheets for Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ACG 2021", "title": "Introduction to Financial Accounting", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "ACG 2071", "title": "Introduction to Managerial Accounting", "credit_hours": 3, "prerequisites": "ACG 2021" },
+      { "course_code": "GEB 1030", "title": "Professional Development for Business Careers", "credit_hours": 1, "prerequisites": null },
+      { "course_code": "RMI 2302", "title": "Risk in Business and Society", "credit_hours": 3, "prerequisites": null }
+    ],
+    "general_business_core_requirements": [
+      { "course_code": "BUL 3310", "title": "The Legal and Ethical Environment of Business", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "FIN 3403", "title": "Financial Management of the Firm", "credit_hours": 3, "prerequisites": ["ECO 2023", "ACG 2021"] },
+      { "course_code": "GEB 3213", "title": "Business Communications", "credit_hours": 3, "prerequisites": "Admission to the major" },
+      { "course_code": "ISM 3541", "title": "Introduction to Business Analytics", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAN 3240", "title": "Organizational Behavior", "credit_hours": 3, "prerequisites": null },
+      { "course_code": "MAR 3023", "title": "Basic Marketing Concepts", "credit_hours": 3, "prerequisites": null }
+    ],
+    "general_business_breadth_requirements": {
+      "required": [
+        { "course_code": "MAN 4720", "title": "Strategic Management and Business Policy", "credit_hours": 3, "prerequisites": ["FIN 3403", "MAN 3240", "MAR 3023"] },
+        { "course_code": "RMI 3011", "title": "Risk Management and Insurance", "credit_hours": 3, "prerequisites": null },
+        { "course_code": "REE 3043", "title": "Real Estate", "credit_hours": 3, "prerequisites": null }
+      ]
+    },
+    "additional_information": [
+      "CGS 2518 is required for graduation.",
+      "Students must earn a C- or better in each course for the major.",
+      "All University-wide graduation requirements must be completed, including liberal studies, multicultural, summer residency, FSU residency, and total hours.",
+      "Upper-level business courses should be taken in residence at FSU unless prior approval is obtained.",
+      "Upper-level transfer credits must come from AACSB-accredited institutions and be approved by the College of Business.",
+      "Summer RMI course offerings are limited; students should not plan on summer availability except RMI 4941.",
+      "Students can complete the RMI major in one academic year after entering.",
+      "Students double-majoring in Sales may replace one RMI elective with a Sales elective.",
+      "Combined BS/MS-RMI or BS/MBA Pathways available for students with 3.4+ GPA overall, 3.2+ upper-division GPA, and 3.2+ major GPA.",
+      "Graduate substitutions allowed: RMI 5701 for RMI 4292, RMI 5257 for RMI 4226, RMI 5018 for RMI elective.",
+      "More information: https://business.fsu.edu/combined-pathways"
+    ],
+    "major_area_requirements": {
+      "required_courses": [
+        { "course_code": "RMI 4115", "title": "Life and Health Insurance Products", "credit_hours": 3, "prerequisites": ["RMI 3011"] },
+        { "course_code": "RMI 4224", "title": "Property and Casualty Insurance Products", "credit_hours": 3, "prerequisites": ["RMI 3011"] },
+        { "course_code": "RMI 4292", "title": "Property and Casualty Insurance Operations", "credit_hours": 3, "prerequisites": ["RMI 3011"] },
+        { "course_code": "RMI 4347", "title": "Commercial Risk Management", "credit_hours": 3, "prerequisites": ["RMI 4224"] }
+      ],
+      "electives": [
+        { "course_code": "RMI 4135", "title": "Employee Benefit Plans", "credit_hours": 3, "prerequisites": ["RMI 3011"] },
+        { "course_code": "RMI 4226", "title": "Insurance Data Analytics", "credit_hours": 3, "prerequisites": ["RMI 3011"] },
+        { "course_code": "RMI 4295", "title": "Advanced Property and Casualty Insurance", "credit_hours": 3, "prerequisites": ["RMI 4224"] },
+        { "course_code": "RMI 4308", "title": "Seminar in Risk and Its Control", "credit_hours": 3, "prerequisites": ["RMI 3011"] },
+        { "course_code": "RMI 4420", "title": "Legal Aspects of Insurance", "credit_hours": 3, "prerequisites": ["BUL 3310", "RMI 3011"] }
+      ],
+      "requiredElectives": 2
+    },
+    "resources": {
+      "minor_computer_science": null,
+      "minor_business_analytics": null,
+      "combined_pathways": "https://business.fsu.edu/combined-pathways"
+    }
+  }
+  

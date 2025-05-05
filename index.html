@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Scheduler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f7fa;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .upload-section {
+            background: #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .graduation-info {
+            background: #ebf8ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .courses-needed {
+            background: #f0fff4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-rows: auto repeat(12, 1fr);
+            height: 600px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .time-slot {
+            padding: 10px;
+            border-right: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f7fafc;
+            font-weight: 500;
+        }
+
+        .day-header {
+            padding: 10px;
+            text-align: center;
+            background: #3182ce;
+            color: white;
+            font-weight: bold;
+        }
+
+        .course-block {
+            padding: 5px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .course-block:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .chat-section {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .chat-header {
+            background: #4299e1;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f7fafc;
+            min-height: 300px;
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .chat-button {
+            width: 100%;
+            padding: 10px;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-button:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            background: #bee3f8;
+            margin-left: auto;
+        }
+
+        .ai-message {
+            background: #fed7d7;
+        }
+
+        .file-input {
+            margin-bottom: 10px;
+        }
+
+        .upload-button {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-button:disabled {
+            background: #9ae6b4;
+            cursor: not-allowed;
+        }
+
+        .generate-button {
+            background: #ed8936;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .generate-button:disabled {
+            background: #fbd38d;
+            cursor: not-allowed;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #2c5282;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: #2a4365;
+        }
+
+        .course-item {
+            padding: 8px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .semesters-left {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+
+        .schedule-alternative {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f8ff;
+            border-radius: 8px;
+        }
+
+        .time-hours {
+            grid-column: 1;
+        }
+
+        .day-column {
+            display: grid;
+            grid-template-rows: auto repeat(12, 1fr);
+        }
+
+        .cell {
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .empty-state {
+            padding: 20px;
+            text-align: center;
+            color: #718096;
+        }
+
+        .course-colors {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-legend {
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #4299e1;
+        }
+
+        .error {
+            background: #fed7d7;
+            color: #9b2c2c;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .preferences-summary {
+            background: #f0fff4;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .alternative-tab {
+            padding: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .alternative-tab:hover {
+            background: #cbd5e0;
+        }
+
+        .alternative-tab.active {
+            background: #3182ce;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>University Course Scheduler</h1>
+            <p>Plan your path to graduation with AI-powered scheduling</p>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="upload-section">
+                    <h2>Upload Documents</h2>
+                    <div class="file-input">
+                        <label>Major Requirements PDF:</label>
+                        <input type="file" id="major-requirements" accept=".pdf">
+                    </div>
+                    <div class="file-input">
+                        <label>Transcript PDF:</label>
+                        <input type="file" id="transcript" accept=".pdf">
+                    </div>
+                    <button class="upload-button" onclick="uploadFiles()">Upload Files</button>
+                    <button class="generate-button" onclick="generateSchedule()" disabled id="generate-btn">Generate Schedule</button>
+                    <div id="upload-status" class="loading" style="display: none;"></div>
+                </div>
+
+                <div class="graduation-info" id="graduation-info">
+                    <h2>Graduation Progress</h2>
+                    <p class="semesters-left">Semesters until graduation: <span id="semesters-count">--</span></p>
+                    <p>Credits completed: <span id="credits-completed">--</span></p>
+                    <p>Credits remaining: <span id="credits-remaining">--</span></p>
+                </div>
+
+                <div class="courses-needed">
+                    <h2>Required Courses</h2>
+                    <div id="courses-list">
+                        <div class="empty-state">Upload your documents to see required courses</div>
+                    </div>
+                </div>
+
+                <div class="schedule-grid" id="schedule-grid">
+                    <div class="time-slot"></div>
+                    <div class="day-header">Monday</div>
+                    <div class="day-header">Tuesday</div>
+                    <div class="day-header">Wednesday</div>
+                    <div class="day-header">Thursday</div>
+                    <div class="day-header">Friday</div>
+                    
+                    <div class="time-hours">
+                        <div class="cell">8:00 AM</div>
+                        <div class="cell">9:00 AM</div>
+                        <div class="cell">10:00 AM</div>
+                        <div class="cell">11:00 AM</div>
+                        <div class="cell">12:00 PM</div>
+                        <div class="cell">1:00 PM</div>
+                        <div class="cell">2:00 PM</div>
+                        <div class="cell">3:00 PM</div>
+                        <div class="cell">4:00 PM</div>
+                        <div class="cell">5:00 PM</div>
+                        <div class="cell">6:00 PM</div>
+                        <div class="cell">7:00 PM</div>
+                    </div>
+
+                    <div class="day-column" id="monday">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                    <div class="day-column" id="tuesday">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                    <div class="day-column" id="wednesday">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                    <div class="day-column" id="thursday">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                    <div class="day-column" id="friday">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                </div>
+
+                <div class="course-colors" id="course-colors">
+                    <!-- Course color legend will appear here -->
+                </div>
+
+                <div class="schedule-alternative" id="alternative-schedules">
+                    <h3>Alternative Schedules</h3>
+                    <div id="alternatives-list">
+                        <p>Generate a schedule first, then chat with the AI to see alternatives.</p>
+                    </div>
+                </div>
+
+                <div class="preferences-summary" id="preferences-summary" style="display: none;">
+                    <h3>Current Preferences</h3>
+                    <div id="preferences-list"></div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="chat-section">
+                    <div class="chat-header">
+                        AI Course Advisor
+                    </div>
+                    
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            Hi! I'm your AI course advisor. Upload your major requirements and transcript, then tell me your preferences for scheduling courses. For example, you can say:
+                            <ul>
+                                <li>"I want all evenings free"</li>
+                                <li>"No classes on Friday"</li>
+                                <li>"Minimize gaps between classes"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" class="chat-input" placeholder="Type your preferences..." onkeypress="handleKeyPress(event)">
+                        <button class="chat-button" onclick="sendMessage()" id="chat-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_URL = '/api';
+        
+        // Global state
+        let state = {
+            requiredCourses: [],
+            currentSchedule: [],
+            alternativeSchedules: [],
+            preferences: {},
+            isLoading: false,
+            fileData: {
+                majorRequirements: null,
+                transcript: null
+            }
+        };
+
+        const courseColors = [
+            '#4299e1', '#48bb78', '#ed8936', '#9f7aea', '#f56565', '#38b2ac'
+        ];
+
+        // API calls
+        async function uploadFiles() {
+            const majorReq = document.getElementById('major-requirements').files[0];
+            const transcript = document.getElementById('transcript').files[0];
+            
+            if (!majorReq || !transcript) {
+                showError('Please upload both files');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('transcript', transcript);
+            formData.append('major-requirements', majorReq);
+
+            showLoading('Uploading and processing files...');
+            
+            try {
+                const response = await fetch(`${API_URL}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    state.requiredCourses = data.required_courses;
+                    updateGraduationInfo(data.graduation_info);
+                    displayRequiredCourses(data.required_courses);
+                    document.getElementById('generate-btn').disabled = false;
+                    addMessage('ai', 'Files processed successfully! You can now generate your schedule or chat about preferences.');
+                } else {
+                    showError(data.error || 'Error processing files');
+                }
+            } catch (error) {
+                showError('Failed to upload files: ' + error.message);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function generateSchedule() {
+            if (!state.requiredCourses.length) {
+                showError('Please upload your documents first');
+                return;
+            }
+
+            showLoading('Generating optimal schedule...');
+            
+            try {
+                const response = await fetch(`${API_URL}/generate-schedule`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        required_courses: state.requiredCourses,
+                        preferences: state.preferences
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    state.currentSchedule = data.schedule;
+                    displaySchedule(data.schedule);
+                    addMessage('ai', 'I\'ve generated your schedule! You can see it on the left. Feel free to tell me any preferences you have.');
+                    
+                    // Get alternatives
+                    await getAlternatives();
+                } else {
+                    showError(data.error || 'Error generating schedule');
+                    addMessage('ai', 'I couldn\'t generate a valid schedule. Try adjusting your preferences or I can suggest alternatives.');
+                }
+            } catch (error) {
+                showError('Failed to generate schedule: ' + error.message);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function getAlternatives() {
+            try {
+                const response = await fetch(`${API_URL}/alternative-schedules`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        required_courses: state.requiredCourses,
+                        preferences: state.preferences,
+                        num_alternatives: 3
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    state.alternativeSchedules = data.alternatives;
+                    displayAlternatives(data.alternatives);
+                }
+            } catch (error) {
+                console.error('Failed to get alternatives:', error);
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            addMessage('user', message);
+            input.value = '';
+            
+            setState('isLoading', true);
+            document.getElementById('chat-btn').disabled = true;
+            
+            try {
+                const response = await fetch(`${API_URL}/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        context: {
+                            preferences: state.preferences,
+                            required_courses: state.requiredCourses
+                        }
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    addMessage('ai', data.response);
+                    
+                    // Update preferences if changed
+                    if (data.schedule_update) {
+                        state.preferences = {
+                            ...state.preferences,
+                            ...data.schedule_update
+                        };
+                        displayPreferences();
+                        
+                        // Regenerate schedule if needed
+                        if (data.action === 'generate_new_schedule') {
+                            generateSchedule();
+                        }
+                    }
+                } else {
+                    addMessage('ai', 'I encountered an error. Please try again.');
+                }
+            } catch (error) {
+                addMessage('ai', 'Failed to process your message. Please check your connection.');
+            } finally {
+                setState('isLoading', false);
+                document.getElementById('chat-btn').disabled = false;
+            }
+        }
+
+        // UI update functions
+        function updateGraduationInfo(info) {
+            document.getElementById('semesters-count').textContent = info.semesters_until_graduation;
+            document.getElementById('credits-completed').textContent = info.completed_credits;
+            document.getElementById('credits-remaining').textContent = info.remaining_credits;
+        }
+
+        function displayRequiredCourses(courses) {
+            const coursesList = document.getElementById('courses-list');
+            coursesList.innerHTML = '';
+            
+            courses.forEach(course => {
+                const courseItem = document.createElement('div');
+                courseItem.className = 'course-item';
+                courseItem.innerHTML = `
+                    <strong>${course.course_code}</strong> - ${course.title} 
+                    <span style="float: right">${course.credit_hours} credits</span>
+                `;
+                coursesList.appendChild(courseItem);
+            });
+        }
+
+        function displaySchedule(schedule) {
+            // Clear current schedule
+            const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+            days.forEach(day => {
+                const column = document.getElementById(day);
+                const cells = column.getElementsByClassName('cell');
+                for (let cell of cells) {
+                    cell.innerHTML = '';
+                }
+            });
+
+            // Display new schedule
+            schedule.forEach((course, index) => {
+                const color = courseColors[index % courseColors.length];
+                
+                const days = parseDays(course.meeting_days);
+                const startTime = parseTime(course.meeting_start);
+                const endTime = parseTime(course.meeting_end);
+                
+                if (startTime && endTime) {
+                    days.forEach(day => {
+                        displayCourseBlock(day, startTime, endTime, course, color);
+                    });
+                }
+            });
+
+            updateColorLegend(schedule);
+        }
+
+        function displayCourseBlock(day, startTime, endTime, course, color) {
+            const dayMap = {
+                'Monday': 'monday',
+                'Tuesday': 'tuesday',
+                'Wednesday': 'wednesday',
+                'Thursday': 'thursday',
+                'Friday': 'friday'
+            };
+            
+            const column = document.getElementById(dayMap[day]);
+            if (!column) return;
+            
+            const cells = column.getElementsByClassName('cell');
+            const startHour = startTime.getHours();
+            const endHour = endTime.getHours();
+            
+            const startCell = startHour - 8;
+            const endCell = endHour - 8;
+            
+            for (let i = startCell; i < endCell && i < cells.length; i++) {
+                const courseBlock = document.createElement('div');
+                courseBlock.className = 'course-block';
+                courseBlock.style.backgroundColor = color;
+                courseBlock.innerHTML = `${course.course_code}<br>${course.title}`;
+                courseBlock.title = `${course.course_code} - ${course.title}\nInstructor: ${course.instructor}\nLocation: ${course.location}`;
+                cells[i].appendChild(courseBlock);
+            }
+        }
+
+        function updateColorLegend(schedule) {
+            const legend = document.getElementById('course-colors');
+            legend.innerHTML = '';
+            
+            schedule.forEach((course, index) => {
+                const color = courseColors[index % courseColors.length];
+                const legendItem = document.createElement('div');
+                legendItem.className = 'color-legend';
+                legendItem.style.backgroundColor = color;
+                legendItem.textContent = `${course.course_code} - ${course.title}`;
+                legend.appendChild(legendItem);
+            });
+        }
+
+        function displayAlternatives(alternatives) {
+            const alterList = document.getElementById('alternatives-list');
+            alterList.innerHTML = '';
+            
+            alternatives.forEach((alt, index) => {
+                const altTab = document.createElement('div');
+                altTab.className = 'alternative-tab';
+                altTab.textContent = `Alternative ${index + 1}: ${alt.description}`;
+                altTab.onclick = () => {
+                    displaySchedule(alt.schedule);
+                    
+                    // Update active tab styling
+                    const tabs = document.getElementsByClassName('alternative-tab');
+                    for (let tab of tabs) {
+                        tab.classList.remove('active');
+                    }
+                    altTab.classList.add('active');
+                };
+                alterList.appendChild(altTab);
+            });
+        }
+
+        function displayPreferences() {
+            const prefSummary = document.getElementById('preferences-summary');
+            const prefList = document.getElementById('preferences-list');
+            
+            if (Object.keys(state.preferences).length > 0) {
+                prefSummary.style.display = 'block';
+                prefList.innerHTML = '';
+                
+                const entries = [];
+                
+                if (state.preferences.no_evening_classes) entries.push('• No evening classes (after 5 PM)');
+                if (state.preferences.no_morning_classes) entries.push('• No morning classes (before noon)');
+                if (state.preferences.exclude_days) entries.push(`• No classes on: ${state.preferences.exclude_days.join(', ')}`);
+                if (state.preferences.online_only) entries.push('• Online classes only');
+                if (state.preferences.minimize_gaps) entries.push('• Minimize gaps between classes');
+                if (state.preferences.preferred_days_per_week) entries.push(`• Prefer ${state.preferences.preferred_days_per_week} meeting days per week`);
+                
+                prefList.innerHTML = entries.join('<br>');
+            } else {
+                prefSummary.style.display = 'none';
+            }
+        }
+
+        // Helper functions
+        function parseDays(daysStr) {
+            const dayMap = {
+                'Mo': 'Monday',
+                'Tu': 'Tuesday',
+                'We': 'Wednesday',
+                'Th': 'Thursday',
+                'Fr': 'Friday'
+            };
+            
+            if (!daysStr) return [];
+            
+            const days = [];
+            let i = 0;
+            while (i < daysStr.length) {
+                if (i + 1 < daysStr.length) {
+                    const day = daysStr.substr(i, 2);
+                    if (dayMap[day]) {
+                        days.push(dayMap[day]);
+                        i += 2;
+                        continue;
+                    }
+                }
+                i++;
+            }
+            return days;
+        }
+
+        function parseTime(timeStr) {
+            if (!timeStr || timeStr === "12:00:00 AM") return null;
+            try {
+                const time = new Date();
+                const [hour, minute] = timeStr.split(':');
+                let hour24 = parseInt(hour);
+                if (timeStr.includes('PM') && hour24 !== 12) hour24 += 12;
+                if (timeStr.includes('AM') && hour24 === 12) hour24 = 0;
+                time.setHours(hour24, parseInt(minute), 0, 0);
+                return time;
+            } catch {
+                return null;
+            }
+        }
+
+        function addMessage(sender, text) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showLoading(message) {
+            const status = document.getElementById('upload-status');
+            status.textContent = message;
+            status.style.display = 'block';
+            setState('isLoading', true);
+        }
+
+        function hideLoading() {
+            const status = document.getElementById('upload-status');
+            status.style.display = 'none';
+            setState('isLoading', false);
+        }
+
+        function showError(message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            chatMessages.appendChild(errorDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function setState(key, value) {
+            state[key] = value;
+            
+            // Disable elements during loading
+            const elements = document.querySelectorAll('button, input');
+            elements.forEach(el => {
+                el.disabled = state.isLoading;
+            });
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !state.isLoading) {
+                sendMessage();
+            }
+        }
+
+        // Initialize
+        window.onload = function() {
+            document.getElementById('chat-input').focus();
+        }
+    </script>
+</body>
+</html>
